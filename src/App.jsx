@@ -472,6 +472,14 @@ export default function App() {
     }
   }
 
+  // Dynamic Greeting based on time of day
+  const getGreeting = () => {
+    const hour = new Date().getHours();
+    if (hour < 12) return 'Good morning';
+    if (hour < 18) return 'Good afternoon';
+    return 'Good evening';
+  };
+
   return (
     <div className="h-screen flex flex-col justify-between overflow-hidden">
       {/* Top Navigation */}
@@ -488,6 +496,14 @@ export default function App() {
 
       {/* Main Game Arena */}
       <main className="flex-1 max-w-xl w-full mx-auto px-2 py-1 flex flex-col items-center justify-center gap-1.5 min-h-0">
+        
+        {/* Greeting Message */}
+        <div className="w-full max-w-[440px] text-center mb-1">
+          <h2 className="text-sm font-semibold text-[var(--text-main)] opacity-90 animate-in fade-in zoom-in duration-500">
+            {getGreeting()}, ready for a puzzle? 🧩
+          </h2>
+        </div>
+
         {/* Controls Status Bar */}
         <GameControls
           difficulty={difficulty}
