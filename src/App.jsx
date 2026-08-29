@@ -30,7 +30,7 @@ export default function App() {
   const [soundEnabled, setSoundEnabled] = useState(settings.sound);
 
   // Puzzle State
-  const [difficulty, setDifficulty] = useState('medium');
+  const [difficulty, setDifficulty] = ;
   const [puzzleData, setPuzzleData] = useState(() => generatePuzzle('medium'));
   const [board, setBoard] = useState(puzzleData.current);
   const [initialBoard, setInitialBoard] = useState(puzzleData.initial);
