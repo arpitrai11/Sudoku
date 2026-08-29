@@ -8,6 +8,7 @@ import {
   Palette,
   RotateCcw,
   PenTool,
+  BookOpen,
 } from 'lucide-react';
 
 const THEMES = [
@@ -26,6 +27,7 @@ export default function Navbar({
   onOpenStats,
   onOpenHelp,
   onOpenSolver,
+  onOpenFacts,
   onNewGame,
 }) {
   const [themeDropdownOpen, setThemeDropdownOpen] = React.useState(false);
@@ -125,6 +127,15 @@ export default function Navbar({
           title="Statistics & Records"
         >
           <Trophy className="w-4 h-4 text-amber-400" />
+        </button>
+
+        {/* Facts button */}
+        <button
+          onClick={onOpenFacts}
+          className="p-2 rounded-xl glass-card hover:bg-[var(--accent-glow)] text-[var(--text-main)] transition-all cursor-pointer md:hidden"
+          title="Sudoku Facts & Benefits"
+        >
+          <BookOpen className="w-4 h-4 text-indigo-400" />
         </button>
 
         {/* How to Play button */}
