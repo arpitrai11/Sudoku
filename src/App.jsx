@@ -7,6 +7,8 @@ import StatsModal from './components/StatsModal';
 import VictoryModal from './components/VictoryModal';
 import HowToPlayModal from './components/HowToPlayModal';
 import CustomSolverModal from './components/CustomSolverModal';
+import FactsPanel from './components/FactsPanel';
+import { BookOpen } from 'lucide-react';
 
 import {
   generatePuzzle,
@@ -57,6 +59,7 @@ export default function App() {
   const [isStatsOpen, setIsStatsOpen] = useState(false);
   const [isHelpOpen, setIsHelpOpen] = useState(false);
   const [isSolverOpen, setIsSolverOpen] = useState(false);
+  const [isFactsOpen, setIsFactsOpen] = useState(false);
 
   // Combo & Visual Feedback State
   const [ripples, setRipples] = useState([]);
@@ -491,8 +494,18 @@ export default function App() {
         onOpenStats={() => setIsStatsOpen(true)}
         onOpenHelp={() => setIsHelpOpen(true)}
         onOpenSolver={() => setIsSolverOpen(true)}
+        onOpenFacts={() => setIsFactsOpen(true)}
         onNewGame={() => handleNewGame(difficulty)}
       />
+
+      {/* Floating Facts Trigger */}
+      <button 
+        onClick={() => setIsFactsOpen(true)}
+        className="fixed top-1/2 right-0 -translate-y-1/2 bg-[var(--accent-color)] text-white p-3 pr-4 pl-3 rounded-l-2xl shadow-lg shadow-indigo-500/30 hover:scale-105 hover:pr-5 transition-all z-40 hidden md:flex items-center gap-2 cursor-pointer group"
+        title="Sudoku Facts & Benefits"
+      >
+        <BookOpen className="w-5 h-5 group-hover:animate-pulse" />
+      </button>
 
       {/* Main Game Arena */}
       <main className="flex-1 max-w-xl w-full mx-auto px-2 py-1 flex flex-col items-center justify-center gap-1.5 min-h-0">
@@ -610,6 +623,11 @@ export default function App() {
         mistakes={mistakes}
         onPlayAgain={() => handleNewGame(difficulty)}
         onNewGame={() => handleNewGame(difficulty)}
+      />
+
+      <FactsPanel 
+        isOpen={isFactsOpen} 
+        onClose={() => setIsFactsOpen(false)} 
       />
 
       {/* Game Over (3 strikes) modal */}
