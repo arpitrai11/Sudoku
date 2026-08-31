@@ -595,7 +595,7 @@ export default function App() {
 
       {/* Footer info */}
       <footer className="py-1 text-center text-[10px] text-[var(--text-muted)] border-t border-[var(--border-color)]">
-        Sudoku Pro &bull; React &amp; Tailwind
+        Sudoku Pro &bull; Created by Arpit
       </footer>
 
       {/* Modals */}
