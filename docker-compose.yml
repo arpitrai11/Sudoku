@@ -1,0 +1,10 @@
+services:
+  sudoku-pro:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: sudoku-pro:latest
+    container_name: sudoku-pro
+    ports:
+      - "8080:80"
+    restart: unless-stopped
